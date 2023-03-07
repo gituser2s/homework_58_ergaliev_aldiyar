@@ -1,0 +1,16 @@
+Запрос 1
+
+Task.objects.filter(Q(status__title__iexact='Done') | Q(updated_at__month='3') | Q(updated_at__date='2023-03-07')).values('description', 'status', 'type')
+
+Запрос 2
+
+Task.objects.filter(Q(status__title__iexact='Done') | Q(status__title__iexact='New') | Q(type__title__iexact='Task') | Q(
+type__title__iexact='Bug')).values('description', 'type', 'status')
+
+Запрос 3
+
+Task.objects.filter(Q(status__title__iexact='Done') | Q(updated_at__month='3') | Q(updated_at__date='2023-03-07')).values('description', 'status', 'type', 'updated_at')
+
+
+
+
